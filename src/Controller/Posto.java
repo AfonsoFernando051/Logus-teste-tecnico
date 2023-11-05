@@ -20,8 +20,6 @@ public class Posto {
 	private ArrayList<LogInformacoesAbastecimento> veiculosAbastecidos = new ArrayList<LogInformacoesAbastecimento>();
 	private ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 	private ArrayList<BombaDeCombustivel> bombasDeCombustivel = new ArrayList<BombaDeCombustivel>();
-	private double precoGasolina = 2.90;
-	private double precoEtanol= 2.70;
 	
 	public void cadastrarModelo(Modelo modelo) {
 		modelos.add(modelo);
@@ -65,10 +63,6 @@ public class Posto {
 	
 	public int veiculosParaAbastecer() {
 		return veiculoAbastecer.size();
-	}
-
-	public void getPrecoEtanol() {
-		System.out.println("O preco do litro do ETANOL e R$" + precoEtanol);
 	}
 
 	public void setTotalCombustivelGasolina(String nomeCombustivel, double qtd) {
