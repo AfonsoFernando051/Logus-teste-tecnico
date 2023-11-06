@@ -86,5 +86,4 @@ public class Main {
 				+ "\n6 - Abastecer veiculos na ordem inversa;\n"
 				+ "\n7 - Sair;\n");
 	}
-	
 }

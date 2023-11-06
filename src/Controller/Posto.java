@@ -23,7 +23,8 @@ public class Posto {
 	private ArrayList<LogInformacoesAbastecimento> veiculosAbastecidos = new ArrayList<LogInformacoesAbastecimento>();
 	private ArrayList<Combustivel> combustiveis = new ArrayList<Combustivel>();
 	private ArrayList<BombaDeCombustivel> bombasDeCombustivel = new ArrayList<BombaDeCombustivel>();
-	
+    private int idNextBomba = 2;
+
 	public void lerViaCsv() {
         String modelosCSV = "/home/fernando-afonso/ArquivosJava/modelos.csv";
         String veiculosCSV = "/home/fernando-afonso/ArquivosJava/veiculos.csv";
@@ -301,18 +302,16 @@ public class Posto {
 	}
 	
 	public void cadastrarCombustivelEBomba() {
-        int idNextBomba = 2;
 		System.out.println("\nPara adicionar um novo tipo de combustivel, por gentileza insira o nome do tipo: \n");
 		String nomeCombustivel = ler.next();
 		System.out.println("\nAgora insira o valor: .\n");
 		double preco = ler.nextDouble();
-		idNextBomba = idNextBomba++;
 
 		Combustivel novoCombustivel = new Combustivel(nomeCombustivel.toUpperCase(), preco);
 		cadastrarCombustivel(novoCombustivel);
 
 		System.out.println("\nCombustivel e bomba cadastrados com sucesso.\n");
-		BombaDeCombustivel novaBomba = new BombaDeCombustivel(idNextBomba, novoCombustivel);
+		BombaDeCombustivel novaBomba = new BombaDeCombustivel(this.idNextBomba++, novoCombustivel);
 		cadastrarBombaDeCombustivel(novaBomba);
 	}
 }
