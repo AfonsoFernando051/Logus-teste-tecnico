@@ -12,12 +12,22 @@ import Models.BombaDeCombustivel;
 import Models.Combustivel;
 import Models.Modelo;
 
+/**
+ * Classe principal que inicia o sistema de abastecimento de um posto de combustível.
+ */
 public class Main {
-
+    /**
+     * Método principal que inicia o programa.
+     *
+     * @param args Os argumentos da linha de comando (não utilizados neste programa).
+     */
 	public static void main(String[] args) {
 		menuPrincipal();
 	}
 	
+    /**
+     * Exibe o menu principal e controla o fluxo do programa.
+     */
 	public static void menuPrincipal() {
 		System.out.println("\nBem vindo ao sistema de abastecimento\n");
 
@@ -76,6 +86,9 @@ public class Main {
 		}while(option != 8 || option == 9);
 	}
 	
+    /**
+     * Exibe o menu de opções para o usuário.
+     */
 	public static void menu() {
 		System.out.println("\nDigite uma opcao: \n"
 				+ "\n1 - Cadastrar veiculos em fila para abastecimento via CSV;\n"

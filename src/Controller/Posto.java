@@ -25,6 +25,9 @@ public class Posto {
 	private ArrayList<BombaDeCombustivel> bombasDeCombustivel = new ArrayList<BombaDeCombustivel>();
     private int idNextBomba = 2;
 
+    /**
+     * Lê informações de veículos e modelos a partir de arquivos CSV.
+     */
 	public void lerViaCsv() {
         String modelosCSV = "/home/fernando-afonso/ArquivosJava/modelos.csv";
         String veiculosCSV = "/home/fernando-afonso/ArquivosJava/veiculos.csv";
@@ -130,6 +133,12 @@ public class Posto {
 		return veiculoAbastecer.size();
 	}
 
+    /**
+     * Define o total abastecido para gasolina.
+     *
+     * @param nomeCombustivel O nome do combustível.
+     * @param qtd A quantidade de combustível abastecido.
+     */
 	public void setTotalCombustivelGasolina(String nomeCombustivel, double qtd) {
 	    for (BombaDeCombustivel bomba : bombasDeCombustivel) {
 	    	if(nomesSaoIguais(bomba.getCombustivel().getNomeCombustivel(), nomeCombustivel)) {
@@ -138,6 +147,12 @@ public class Posto {
 	    }
 	}
 	
+    /**
+     * Define o total abastecido para etanol.
+     *
+     * @param nomeCombustivel O nome do combustível.
+     * @param qtd A quantidade de combustível abastecido.
+     */
 	public void setTotalCombustivelEtanol(String nomeCombustivel, double qtd) {
 	    for (BombaDeCombustivel bomba : bombasDeCombustivel) {
 	    	if(nomesSaoIguais(bomba.getCombustivel().getNomeCombustivel(), nomeCombustivel)) {
@@ -154,6 +169,11 @@ public class Posto {
 		System.out.println("Total geral abastecido de ETANOL e " + this.totalAbastecidoBombasEtanol+ " litros");
 	}
 	
+    /**
+     * Realiza o abastecimento de um veículo.
+     *
+     * @param posicao A posição do veículo na fila de abastecimento.
+     */
 	public void abastecer(int posicao) {
 		LogInformacoesAbastecimento modeloAbastecimento = new LogInformacoesAbastecimento();
 		Veiculo carro = veiculoAbastecer.get(posicao);
@@ -214,6 +234,10 @@ public class Posto {
 		return tipoCombustivel.equalsIgnoreCase("gasolina");
 	}
 	
+    /**
+     * Define o tipo de combustível e valida antes de retornar.
+     *
+    */
 	public String definirCombustivel() {
 		String tipoCombustivel;
 		do{
@@ -233,6 +257,10 @@ public class Posto {
 
 	}
 	
+    /**
+     * Exibe informações sobre os veículos e sobre abastecimento.
+     *
+    */
 	public void informacoes() {
 		lerLogAbastecimento();
 		BombaDeCombustivel bombaDeGasolina = bombasDeCombustivel.get(0);
@@ -261,6 +289,10 @@ public class Posto {
 		System.out.println("Velocidade de abastecimento da bomba de álcool: 12 litros /minuto");
 	}
 
+    /**
+     * Cadastra um veículo individualmente e o insere na fila de abastecimento.
+     *
+    */
 	public void cadastrarVeiculoIndividualmente(){
 		System.out.println("\nPara adicionar um novo veiculo na base de dados, digite o modelo: \n");
 		String nomeModelo = ler.next();
@@ -294,6 +326,10 @@ public class Posto {
         lerModelos();
 	}
 	
+    /**
+     * Valida se a placa segue os padrões corretos.
+     *
+    */
 	public boolean placaIncorreta(String placa) {
         String placaAntiga= "^[A-Z]{3}-\\d{4}$";
         String placaMercosul = "^[A-Z]{3}\\d[A-Z]\\d{2}$";
@@ -301,6 +337,10 @@ public class Posto {
         return !(placa.matches(placaAntiga) || placa.matches(placaMercosul));
 	}
 	
+    /**
+     * Cadastra um novo tipo de combustível e bomba, além de inserí-los nas respectivas listas.
+     *
+    */
 	public void cadastrarCombustivelEBomba() {
 		System.out.println("\nPara adicionar um novo tipo de combustivel, por gentileza insira o nome do tipo: \n");
 		String nomeCombustivel = ler.next();
