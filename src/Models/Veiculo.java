@@ -11,11 +11,6 @@ public class Veiculo{
 		this.placa = placa;
 	}
 
-	@Override
-	public String toString() {
-		return "Posicao do Veiculo na fila:  " + id + ", modelo: " + nomeModelo + ", placa: " + placa  + ".";
-	}
-
 	public String getNomeModelo() {
 		return nomeModelo;
 	}
@@ -24,5 +19,9 @@ public class Veiculo{
 	}
 	public void setNomeModelo(String nomeModelo) {
 		this.nomeModelo = nomeModelo;
+	}
+	@Override
+	public String toString() {
+		return "Posicao do Veiculo na fila:  " + id + ", modelo: " + nomeModelo + ", placa: " + placa  + ".";
 	}
 }
