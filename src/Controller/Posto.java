@@ -29,8 +29,8 @@ public class Posto {
      * Lê informações de veículos e modelos a partir de arquivos CSV.
      */
 	public void lerViaCsv() {
-        String modelosCSV = "/home/fernando-afonso/ArquivosJava/modelos.csv";
-        String veiculosCSV = "/home/fernando-afonso/ArquivosJava/veiculos.csv";
+        String modelosCSV = "../../ArquivosJava/modelos.csv";
+        String veiculosCSV = "../../ArquivosJava/veiculos.csv";
         int posicaoNaFila = 0;
 
         try (BufferedReader br = new BufferedReader(new FileReader(veiculosCSV))) {
